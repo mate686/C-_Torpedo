@@ -15,7 +15,6 @@ namespace TorpedoJatek
         public Hajo[,] Pontok;
         public List<Hajo> HajokLista { get; set; }
 
-        public List<int> Teszt = new List<int>();
  
         public Tabla(byte m, byte sz)
         {
@@ -51,11 +50,7 @@ namespace TorpedoJatek
 
             byte[] HMeretek = [2, 2, 3, 4, 5];
 
-            foreach (byte m in HMeretek) {
-                foreach (int item in Teszt)
-                {
-                    Console.WriteLine(item);
-                }
+            foreach (byte m in HMeretek) { 
                 Megjelenites();
                 HajoLetrehozas(m);
                 Console.Clear();
@@ -138,16 +133,16 @@ namespace TorpedoJatek
             }
 
             
-            for (int x = 0; x < m-1; x++)
+            for (int x = 0; x <= m-1; x++)
             {
-                if (Pontok[s+x, o] != null && i =="v")
+                if (i == "f" && Pontok[s+x, o] != null)
                 {
-                    Teszt.Add(s+x);
+                   
                     return false;
                 }
-                else if (Pontok[s, o+x] != null && i == "f")
+                else if (i == "v" && Pontok[s, o+x] != null)
                 {
-                    Teszt.Add(s + x);
+                  
                     return false;
                 }
             }
